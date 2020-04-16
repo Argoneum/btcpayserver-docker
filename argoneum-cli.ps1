@@ -1,0 +1,1 @@
+docker exec btcpayserver_argoneumd argoneum-cli -datadir="/data" $args

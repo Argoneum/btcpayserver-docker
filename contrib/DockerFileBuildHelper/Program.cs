@@ -405,6 +405,13 @@ namespace DockerFileBuildHelper
                     dockerInfo.GitLink = "https://github.com/btcpayserver/dockerfile-deps";
                     dockerInfo.GitRef = $"Dash/{image.Tag}";
                     break;
+                case "argoneum":
+                    dockerInfo.DockerFilePath = $"Argoneum/{image.Tag}/linuxamd64.Dockerfile";
+                    dockerInfo.DockerFilePathARM32v7 = $"Argoneum/{image.Tag}/linuxarm32v7.Dockerfile";
+                    dockerInfo.DockerFilePathARM64v8 = $"Argoneum/{image.Tag}/linuxarm64v8.Dockerfile";
+                    dockerInfo.GitLink = "https://github.com/btcpayserver/dockerfile-deps";
+                    dockerInfo.GitRef = $"Argoneum/{image.Tag}";
+                    break;
                 case "btcpayserver":
                     dockerInfo.DockerFilePath = "amd64.Dockerfile";
                     dockerInfo.DockerFilePathARM32v7 = "arm32v7.Dockerfile";

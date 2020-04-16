@@ -82,5 +82,12 @@
     "CLightningFragment": null,
     "LNDFragment": null,
     "EclairFragment": null
+  },
+  {
+    "Crypto": "agm",
+    "CryptoFragment": "argoneum",
+    "CLightningFragment": null,
+    "LNDFragment": null,
+    "EclairFragment": null
   }
 ]

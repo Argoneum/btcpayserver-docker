@@ -791,3 +791,17 @@ docker build -f "$DOCKERFILE" -t "romanornr/docker-viacoin:0.15.2" .
 cd - && cd ..
 
 
+# Build argoneum
+# https://raw.githubusercontent.com/btcpayserver/dockerfile-deps/Argoneum/1.4.1/linuxamd64.Dockerfile
+DOCKERFILE="Argoneum/1.4.1/linuxamd64.Dockerfile"
+# https://raw.githubusercontent.com/btcpayserver/dockerfile-deps/Argoneum/1.4.1/linuxarm32v7.Dockerfile
+[[ "$(uname -m)" == "armv7l" ]] && DOCKERFILE="Argoneum/1.4.1/linuxarm32v7.Dockerfile"
+## https://raw.githubusercontent.com/btcpayserver/dockerfile-deps/Argoneum/1.4.1/linuxarm64v8.Dockerfile
+[[ "$(uname -m)" == "aarch64" ]] && DOCKERFILE="Argoneum/1.4.1/linuxarm64v8.Dockerfile"
+echo "Building btcpayserver/argoneum:1.4.1"
+git clone https://github.com/btcpayserver/dockerfile-deps argoneum
+cd argoneum
+git checkout Argoneum/1.4.1.0
+cd "$(dirname $DOCKERFILE)"
+docker build -f "$DOCKERFILE" -t "btcpayserver/argoneum:1.4.1" .
+cd - && cd ..

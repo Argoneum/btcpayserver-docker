@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  argoneumd:
+      restart: unless-stopped
+      container_name: btcpayserver_argoneumd
+      image: btcpayserver/argoneum:1.4.1
+      environment:
+        BITCOIN_EXTRA_ARGS: |
+          ${NBITCOIN_NETWORK:-regtest}=1
+          port=9898
+          rpcport=9899
+          whitelist=0.0.0.0/0
+      expose:
+        - "9898"
+        - "9899"
+      volumes:
+        - "argoneum_datadir:/data"
+  nbxplorer:
+      environment:
+        NBXPLORER_CHAINS: "agm"
+        NBXPLORER_AGMRPCURL: http://argoneumd:9899/
+        NBXPLORER_AGMNODEENDPOINT: argoneumd:9898
+      volumes:
+        - "argoneum_datadir:/root/.argoneum"
+  btcpayserver:
+      environment:
+        BTCPAY_CHAINS: "agm"
+        BTCPAY_AGMEXPLORERURL: http://nbxplorer:32838/
+volumes:
+  argoneum_datadir:
