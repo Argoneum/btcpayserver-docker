@@ -4,7 +4,7 @@ services:
 
   nbxplorer:
     restart: unless-stopped
-    image: nicolasdorier/nbxplorer:2.1.24
+    image: osnwt/btcpayserver-nbxplorer
     expose: 
       - "32838"
     environment:

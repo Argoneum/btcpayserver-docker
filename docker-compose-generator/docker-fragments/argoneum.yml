@@ -4,7 +4,7 @@ services:
   argoneumd:
       restart: unless-stopped
       container_name: btcpayserver_argoneumd
-      image: btcpayserver/argoneum:1.4.1
+      image: osnwt/btcpayserver-argoneum:1.4.1
       environment:
         BITCOIN_EXTRA_ARGS: |
           ${NBITCOIN_NETWORK:-regtest}=1
